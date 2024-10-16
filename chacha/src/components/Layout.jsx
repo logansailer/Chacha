@@ -1,3 +1,6 @@
+import Modal from "./Modal";
+import Authentication from "./Authentication";
+
 export default function Layout({ children }) {
   const header = (
     <header>
@@ -28,6 +31,9 @@ export default function Layout({ children }) {
   );
   return (
     <>
+    <Modal>
+      <Authentication></Authentication>
+    </Modal>
       {header}
       <main>{children}</main>
       {footer}
