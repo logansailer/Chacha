@@ -18,6 +18,11 @@ export default function Layout({ children }) {
         <a href="https://logan-sailer.netlify.app/" target="_blank">
           Logan Sailer
         </a>
+        <br></br>
+        See the project on
+        <a href="https://github.com/logansailer/Chacha" target="_blank">
+          Github
+        </a>
       </p>
     </footer>
   );
