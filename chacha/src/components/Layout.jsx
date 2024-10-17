@@ -1,14 +1,16 @@
 import Modal from "./Modal";
 import Authentication from "./Authentication";
+import { useState } from "react";
 
 export default function Layout({ children }) {
+  const [showModal, setShowModal] = useState(false);
   const header = (
     <header>
       <div>
         <h1 className="text-gradient">Chacha</h1>
         <p>For Tea Insatiates</p>
       </div>
-      <button>
+      <button onClick={() => setShowModal(true)}>
         <p>Sign up free</p>
         <i className="fa-solid fa-mug-hot"></i>
       </button>
@@ -31,9 +33,11 @@ export default function Layout({ children }) {
   );
   return (
     <>
-    <Modal>
-      <Authentication></Authentication>
-    </Modal>
+      {showModal && (
+        <Modal handleCloseModal={() => setShowModal(false)} >
+          <Authentication></Authentication>
+        </Modal>
+      )}
       {header}
       <main>{children}</main>
       {footer}
