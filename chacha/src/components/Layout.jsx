@@ -10,7 +10,7 @@ export default function Layout({ children }) {
     <header>
       <div>
         <h1 className="text-gradient">Chacha</h1>
-        <p>For Tea Insatiates</p>
+        <p>For Tea Enthusiasts</p>
       </div>
       {globalUser ? (
         <button onClick={logout}>
@@ -43,7 +43,7 @@ export default function Layout({ children }) {
   function handleCloseModal() {
     setShowModal(false);
   }
-  
+
   return (
     <>
       {showModal && (
