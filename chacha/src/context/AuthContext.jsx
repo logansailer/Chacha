@@ -47,22 +47,24 @@ export function AuthProvider({ children }) {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       console.log("CURRENT USER: ", user);
       setGlobalUser(user);
+
       // if there's no user, empty user state and return from listener
       if (!user) {
         console.log("No active user");
         return;
       }
-      // if there is a user, check if user has data in database, if they do then fetch  data and update global state
+
+      // if there is a user, check if user has data in database, if they do then fetch data and update global state
       try {
         setIsLoading(true);
-        //first we create a reference for the document (labelled json object)
-        //then we get he doc and snopshot to see if theres anything there
+        //create a reference for the document (labelled json object)
+        //then we get the doc and snapshot to see if theres anything there
         const docRef = doc(db, "users", user.uid);
         const docSnap = await getDoc(docRef);
 
         let firebaseData = {};
         if (docSnap.exists()) {
-          firebaseData = docSnap.data;
+          firebaseData = docSnap.data();
           console.log("User data found!", firebaseData);
         }
         setGlobalData(firebaseData);

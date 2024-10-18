@@ -2,6 +2,9 @@ import { coffeeOptions } from "../utils";
 import { useState } from "react";
 import Authentication from "./Authentication";
 import Modal from "./Modal";
+import { useAuth } from "../context/AuthContext";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 export default function CoffeForm({ isAuthenticated }) {
   const [showModal, setShowModal] = useState(false);
@@ -11,19 +14,61 @@ export default function CoffeForm({ isAuthenticated }) {
   const [hour, setHour] = useState(0);
   const [min, setMin] = useState(0);
 
-  function handleSubmitForm() {
+  const { globalData, setGlobalData, globalUser } = useAuth();
+
+  async function handleSubmitForm() {
     if (!isAuthenticated) {
       setShowModal(true);
       return;
     }
-    console.log(selected, cost, hour, min);
+
+    //only submits the form if it is completed
+    if (!selected) {
+      return;
+    }
+
+    try {
+      // duplicate of globalData
+      const newGlobalData = {
+        ...(globalData || {}),
+      };
+      //time is in miliseconds, so have to convert hour and minute to proper unit
+      const timeNow = Date.now();
+      const timeToSubtract = hour * 60 * 60 * 1000 + min * 60 * 1000;
+      const timestamp = timeNow - timeToSubtract;
+
+      //update global state and send same data to database
+      newGlobalData[timestamp] = { name: selected, cost: cost };
+      console.log(timestamp, selected, cost);
+      setGlobalData(newGlobalData);
+
+      const userRef = doc(db, "users", globalUser.uid);
+      await setDoc(
+        userRef,
+        {
+          [timestamp]: { name: selected, cost: cost },
+        },
+        { merge: true }
+      );
+
+      setSelected(null)
+      setCost(0)
+      setHour(0)
+      setMin(0)
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  function handleCloseModal() {
+    setShowModal(false);
   }
 
   return (
     <>
       {showModal && (
-        <Modal handleCloseModal={() => setShowModal(false)}>
-          <Authentication></Authentication>
+        <Modal handleCloseModal={handleCloseModal}>
+          <Authentication handleCloseModal={handleCloseModal} />
         </Modal>
       )}
       <div className="section-header">
@@ -82,7 +127,7 @@ export default function CoffeForm({ isAuthenticated }) {
           })}
         </select>
       )}
-      <h4>Add the cost:</h4>
+      <h4>Add the cost ($):</h4>
       <input
         value={cost}
         onChange={(event) => {
