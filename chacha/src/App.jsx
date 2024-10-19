@@ -1,5 +1,5 @@
 import Layout from "./components/Layout";
-import Hero from "./components/Hero";
+import Intro from "./components/Intro";
 import CoffeForm from "./components/CoffeeForm";
 import Stats from "./components/Stats";
 import History from "./components/History";
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <Layout>
-      <Hero />
+      <Intro />
       <CoffeForm isAuthenticated={isAuthenticated} />
       {isAuthenticated && isLoading && <p>Loading Data...</p>}
       {isAuthenticated && isData && authenticatedContent}
