@@ -82,7 +82,7 @@ export default function Stats() {
             {getTopThreeTeas(globalData).map((Tea, TeaIndex) => {
               return (
                 <tr key={TeaIndex}>
-                  <td>{Tea.TeaName}</td>
+                  <td>{Tea.teaName}</td>
                   <td>{Tea.count}</td>
                   <td>{Tea.percentage}</td>
                 </tr>

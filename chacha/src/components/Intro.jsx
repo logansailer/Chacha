@@ -4,7 +4,7 @@ export default function Hero() {
       <h1>Tracking app for Tea Devotees</h1>
       <div className="benefits-list">
         <h3 className="font-bolder">
-          Try <span className="text-gradient">Caffiend</span> and start...
+          Try <span className="text-gradient">Chacha</span> and start...
         </h3>
         <p>✔️ Tracking every tea</p>
         <p>✔️ Measuring caffeine levels</p>

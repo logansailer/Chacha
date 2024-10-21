@@ -17,21 +17,21 @@ export default function History() {
       <p>
         <i>Hover for more information!</i>
       </p>
-      <div className="coffee-history">
+      <div className="tea-history">
         {Object.keys(globalData)
           .sort((a, b) => b - a)
-          .map((utcTime, coffeeIndex) => {
-            const coffee = globalData[utcTime];
+          .map((utcTime, teaIndex) => {
+            const tea = globalData[utcTime];
             const timeSinceConsume = timeSinceConsumption(utcTime);
-            const originalAmount = getCaffeineAmount(coffee.name);
+            const originalAmount = getCaffeineAmount(tea.name);
             const remainingAmount = calculateCurrentCaffeineLevel({
-              [utcTime]: coffee,
+              [utcTime]: tea,
             });
 
-            const summary = `${coffee.name} | ${timeSinceConsume} | $${coffee.cost} | ${remainingAmount}mg / ${originalAmount}mg`;
+            const summary = `${tea.name} | ${timeSinceConsume} | $${tea.cost} | ${remainingAmount}mg / ${originalAmount}mg`;
 
             return (
-              <div title={summary} key={coffeeIndex}>
+              <div title={summary} key={teaIndex}>
                 <i className="fa-solid fa-mug-hot" />
               </div>
             );

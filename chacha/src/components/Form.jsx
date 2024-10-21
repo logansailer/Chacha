@@ -39,7 +39,6 @@ export default function Form({ isAuthenticated }) {
 
       //update global state and send same data to database
       newGlobalData[timestamp] = { name: selected, cost: cost };
-      console.log(timestamp, selected, cost);
       setGlobalData(newGlobalData);
 
       const userRef = doc(db, "users", globalUser.uid);
@@ -76,7 +75,7 @@ export default function Form({ isAuthenticated }) {
         <h2>Start Tracking Today</h2>
       </div>
       <h4>Select tea type:</h4>
-      <div className="coffee-grid">
+      <div className="tea-grid">
         {teaOptions.slice(0, 5).map((option, optionIndex) => {
           return (
             <button
@@ -86,7 +85,7 @@ export default function Form({ isAuthenticated }) {
               }}
               className={
                 "button-card " +
-                (option.name === selected ? "coffee-button-selected" : "")
+                (option.name === selected ? "tea-button-selected" : "")
               }
               key={optionIndex}
             >
@@ -102,7 +101,7 @@ export default function Form({ isAuthenticated }) {
           }}
           className={
             "button-card " +
-            (setshowTeaTypes === true ? "coffee-button-selected" : "")
+            (setshowTeaTypes === true ? "tea-button-selected" : "")
           }
         >
           <h4>Other</h4>
@@ -114,8 +113,8 @@ export default function Form({ isAuthenticated }) {
           onChange={(event) => {
             setSelected(event.target.value);
           }}
-          id="coffee-list"
-          name="coffee-list"
+          id="tea-list"
+          name="tea-list"
         >
           <option value={null}>Select Type</option>
           {teaOptions.map((option, optionIndex) => {

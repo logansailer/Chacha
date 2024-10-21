@@ -65,7 +65,6 @@ export function AuthProvider({ children }) {
         let firebaseData = {};
         if (docSnap.exists()) {
           firebaseData = docSnap.data();
-          console.log("User data found!", firebaseData);
         }
         setGlobalData(firebaseData);
       } catch (error) {

@@ -32,7 +32,7 @@ export default function Layout({ children }) {
           Logan Sailer
         </a>
         <br></br>
-        See the project on
+        See the project on &nbsp;
         <a href="https://github.com/logansailer/Chacha" target="_blank">
           Github
         </a>
