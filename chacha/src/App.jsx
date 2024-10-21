@@ -1,6 +1,6 @@
 import Layout from "./components/Layout";
 import Intro from "./components/Intro";
-import CoffeForm from "./components/CoffeeForm";
+import Form from "./components/Form";
 import Stats from "./components/Stats";
 import History from "./components/History";
 import { useAuth } from "./context/AuthContext";
@@ -22,7 +22,7 @@ function App() {
   return (
     <Layout>
       <Intro />
-      <CoffeForm isAuthenticated={isAuthenticated} />
+      <Form isAuthenticated={isAuthenticated} />
       {isAuthenticated && isLoading && <p>Loading Data...</p>}
       {isAuthenticated && isData && authenticatedContent}
     </Layout>

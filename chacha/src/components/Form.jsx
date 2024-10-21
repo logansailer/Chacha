@@ -1,4 +1,4 @@
-import { coffeeOptions } from "../utils";
+import { teaOptions } from "../utils";
 import { useState } from "react";
 import Authentication from "./Authentication";
 import Modal from "./Modal";
@@ -6,10 +6,10 @@ import { useAuth } from "../context/AuthContext";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
-export default function CoffeForm({ isAuthenticated }) {
+export default function Form({ isAuthenticated }) {
   const [showModal, setShowModal] = useState(false);
   const [selected, setSelected] = useState(null);
-  const [showCoffeeTypes, setShowCoffeeTypes] = useState(false);
+  const [setshowTeaTypes, setsetshowTeaTypes] = useState(false);
   const [cost, setCost] = useState(0);
   const [hour, setHour] = useState(0);
   const [min, setMin] = useState(0);
@@ -77,12 +77,12 @@ export default function CoffeForm({ isAuthenticated }) {
       </div>
       <h4>Select tea type:</h4>
       <div className="coffee-grid">
-        {coffeeOptions.slice(0, 5).map((option, optionIndex) => {
+        {teaOptions.slice(0, 5).map((option, optionIndex) => {
           return (
             <button
               onClick={() => {
                 setSelected(option.name);
-                setShowCoffeeTypes(false);
+                setsetshowTeaTypes(false);
               }}
               className={
                 "button-card " +
@@ -97,19 +97,19 @@ export default function CoffeForm({ isAuthenticated }) {
         })}
         <button
           onClick={() => {
-            setShowCoffeeTypes(true);
+            setsetshowTeaTypes(true);
             setSelected(null);
           }}
           className={
             "button-card " +
-            (showCoffeeTypes === true ? "coffee-button-selected" : "")
+            (setshowTeaTypes === true ? "coffee-button-selected" : "")
           }
         >
           <h4>Other</h4>
           <p>n/a</p>
         </button>
       </div>
-      {showCoffeeTypes && (
+      {setshowTeaTypes && (
         <select
           onChange={(event) => {
             setSelected(event.target.value);
@@ -118,7 +118,7 @@ export default function CoffeForm({ isAuthenticated }) {
           name="coffee-list"
         >
           <option value={null}>Select Type</option>
-          {coffeeOptions.map((option, optionIndex) => {
+          {teaOptions.map((option, optionIndex) => {
             return (
               <option value={option.name} key={optionIndex}>
                 {option.name} {option.caffeine}mg

@@ -1,8 +1,8 @@
 import { useAuth } from "../context/AuthContext";
 import {
-  calculateCoffeeStats,
+  calculateTeaStats,
   calculateCurrentCaffeineLevel,
-  getTopThreeCoffees,
+  getTopThreeTeas,
   statusLevels,
 } from "../utils";
 
@@ -17,7 +17,7 @@ function StatCard({ large, title, children }) {
 
 export default function Stats() {
   const { globalData } = useAuth();
-  const stats = calculateCoffeeStats(globalData);
+  const stats = calculateTeaStats(globalData);
 
   const caffeineLevel = calculateCurrentCaffeineLevel(globalData);
   const warnignLevel =
@@ -73,18 +73,18 @@ export default function Stats() {
         <table className="stat-table">
           <thead>
             <tr>
-              <th>Coffee Name</th>
+              <th>Tea Name</th>
               <th>Number of Purchases</th>
               <th>Percentage of total</th>
             </tr>
           </thead>
           <tbody>
-            {getTopThreeCoffees(globalData).map((coffee, coffeeIndex) => {
+            {getTopThreeTeas(globalData).map((Tea, TeaIndex) => {
               return (
-                <tr key={coffeeIndex}>
-                  <td>{coffee.coffeeName}</td>
-                  <td>{coffee.count}</td>
-                  <td>{coffee.percentage}</td>
+                <tr key={TeaIndex}>
+                  <td>{Tea.TeaName}</td>
+                  <td>{Tea.count}</td>
+                  <td>{Tea.percentage}</td>
                 </tr>
               );
             })}
