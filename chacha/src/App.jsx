@@ -2,7 +2,7 @@ import Layout from "./components/Layout";
 import Intro from "./components/Intro";
 import Form from "./components/Form";
 import Stats from "./components/Stats";
-import History from "./components/History";
+import History from "./components/History"
 import { useAuth } from "./context/AuthContext";
 
 function App() {

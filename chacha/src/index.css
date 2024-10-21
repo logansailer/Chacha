@@ -204,9 +204,9 @@ footer {
 
 :root {
   --background-primary: white;
+  --background-secondary: rgb(202, 202, 202);
   --background-tertiary: #dbeafe;
   --background-muted: #f8fafc;
-  
 
   --color-primary: #030615;
   --color-link: #cc6f24;
@@ -219,7 +219,7 @@ footer {
 
   --border-primary: #b5b8a6;
   --border-secondary: rgba(201, 204, 187, 0.6);
-  --border-highlight: #adb392;
+  --border-highlight: #5e7248;
 
   --padding-small: 1rem;
   --padding-large: 2rem;
@@ -234,6 +234,7 @@ footer {
 @media (prefers-color-scheme: dark) {
   :root {
     --background-primary: #141413;
+    --background-secondary: rgb(202, 202, 202);
     --background-muted: #332f31;
 
     --color-primary: white;
@@ -251,7 +252,7 @@ footer {
 
     --border-primary: #323f24;
     --border-secondary: #323f24;
-    --border-highlight: #323f24;
+    --border-highlight: #5e7248;
 
     --padding-small: 1rem;
     --padding-large: 2rem;
@@ -759,6 +760,54 @@ details[open] summary {
 .card-button-secondary:hover {
   transform: none;
   opacity: 0.6;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.modal-underlay {
+  position: absolute;
+  inset: 0;
+  background: var(--background-muted);
+  opacity: 0.8;
+  z-index: 99;
+  border: none;
+  width: 100%;
+  box-shadow: unset;
+}
+
+.modal-underlay:hover {
+  transform: translate(0);
+  box-shadow: unset;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 101;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 400px;
+  border-radius: var(--border-radius-large);
+  border: 1px solid var(--border-primary);
+  background: var(--background-primary);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+  gap: 1rem;
 }
 
 @media (min-width: 640px) {
