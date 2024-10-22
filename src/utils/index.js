@@ -134,19 +134,19 @@ export function timeSinceConsumption(utcMilliseconds) {
   return result.trim(); // Remove any trailing space
 }
 
-// This function was added during recording
+// Calculates final stats
 export function calculateTeaStats(teaConsumptionHistory) {
   const dailyStats = {};
   let totalTeas = 0;
   let totalCost = 0;
   let totalCaffeine = 0;
-  let totalDaysWithtea = 0;
+  let totalDaysWithTea = 0;
 
   for (const [timestamp, tea] of Object.entries(teaConsumptionHistory)) {
     const date = new Date(parseInt(timestamp)).toISOString().split("T")[0]; // Extract date in YYYY-MM-DD format
     const caffeine = getCaffeineAmount(tea.name);
     const cost = parseFloat(tea.cost);
-
+    
     // Initialize or update the daily stats
     if (!dailyStats[date]) {
       dailyStats[date] = { caffeine: 0, cost: 0, count: 0 };
@@ -162,21 +162,19 @@ export function calculateTeaStats(teaConsumptionHistory) {
   }
 
   const days = Object.keys(dailyStats).length;
-  for (const stats of Object.entries(dailyStats)) {
+  for (const [date, stats] of Object.entries(dailyStats)) {
     if (stats.caffeine > 0) {
       totalCaffeine += stats.caffeine;
-      totalDaysWithtea += 1; // Count days when caffeine was consumed
+      totalDaysWithTea += 1; // Count days when caffeine was consumed
     }
   }
-
   // Calculate average daily caffeine and average daily cost
   const averageDailyCaffeine =
-    totalDaysWithtea > 0
-      ? (totalCaffeine / totalDaysWithtea).toFixed(2)
+    totalDaysWithTea > 0
+      ? (totalCaffeine / totalDaysWithTea).toFixed(2)
       : 0;
   const averageDailyCost =
-    totalDaysWithtea > 0 ? (totalCost / totalDaysWithtea).toFixed(2) : 0;
-  console.log(totalCost, typeof totalCost);
+    totalDaysWithTea > 0 ? (totalCost / totalDaysWithTea).toFixed(2) : 0;
   return {
     daily_caffeine: averageDailyCaffeine,
     daily_cost: averageDailyCost,
