@@ -1,7 +1,7 @@
 # Chacha
 
-The app used to track tea consumption
+Chacha is a tea and caffeine tracking app. Chacha is writen using React.JS and features Firebase user authentication and database management
 
-Chacha is written using JavaScript with React.js and implements Google Firebase authentication and database management.
+The app was created to combine research done in my undergrad based around caffeine intake with my love for tea!
 
 See it live [here](https://chacha-tracking.netlify.app/) 👈
