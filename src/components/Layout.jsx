@@ -10,7 +10,7 @@ export default function Layout({ children }) {
     <header>
       <div>
         <h1 className="text-gradient">Chacha</h1>
-        <p>For Tea Enthusiasts</p>
+        <p>a Tea Tracking App</p>
       </div>
       {globalUser ? (
         <button onClick={logout}>

@@ -1,7 +1,7 @@
-export default function Hero() {
+export default function Intro() {
   return (
     <>
-      <h1>Tracking App for Tea Devotees</h1>
+      <h1>Tracking App for Tea Enthusiasts</h1>
       <div className="benefits-list">
         <h3 className="font-bolder">
           Try <span className="text-gradient">Chacha</span> and start...

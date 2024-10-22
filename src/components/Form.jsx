@@ -72,7 +72,7 @@ export default function Form({ isAuthenticated }) {
       )}
       <div className="section-header">
         <i className="fa-solid fa-pencil"></i>
-        <h2>Start Tracking Today</h2>
+        <h2>Start Tracking</h2>
       </div>
       <h4>Select tea type:</h4>
       <div className="tea-grid">
