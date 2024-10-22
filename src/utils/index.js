@@ -23,16 +23,21 @@ export const statusLevels = {
 };
 
 export const teaOptions = [
-  { name: "Black Tea", caffeine: 60 },
-  { name: "Green Tea", caffeine: 35 },
-  { name: "Oolong Tea", caffeine: 40 },
+  { name: "Black Tea", caffeine: 55 },
+  { name: "Green Tea", caffeine: 30 },
+  { name: "Chai", caffeine: 30 },
+  { name: "Oolong Tea", caffeine: 45 },
   { name: "Matcha", caffeine: 70 },
-  { name: "White Tea", caffeine: 20 },
+  { name: "White Tea", caffeine: 35 },
   { name: "Herbal Tea", caffeine: 0 },
   { name: "Chamomile Tea", caffeine: 0 },
+  { name: "Sleepytime Tea", caffeine: 0 },
+  { name: "Yellow Tea", caffeine: 30 },
   { name: "Earl Grey Tea", caffeine: 50 },
-  { name: "Lemon Lift Tea", caffeine: 40 },
-  { name: "Decaf Tea", caffeine: 85 },
+  { name: "Lemon Lift Tea", caffeine: 50 },
+  { name: "Decaf Tea", caffeine: 3 },
+  { name: "Kombucha", caffeine: 24 },
+  { name: "Yerba Mate", caffeine: 85 },
 ];
 
 const halfLifeHours = 5;

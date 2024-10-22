@@ -165,6 +165,10 @@ form {
   white-space: nowrap;
 }
 
+.check {
+color:#5e7248
+}
+
 footer {
   padding: 2rem 0;
   display: flex;
@@ -239,7 +243,7 @@ footer {
 
     --color-primary: white;
     --color-link: #cc6f24;
-    --color-link-transparent: rgba(37, 99, 235, 0.1);
+    --color-link-transparent: rgba(50, 63, 36, 0.6);
 
     --color-success: "";
     --color-warning: "";
@@ -251,7 +255,7 @@ footer {
     --gradient-end: #e2a963;
 
     --border-primary: #323f24;
-    --border-secondary: #323f24;
+    --border-secondary: rgb(50, 63, 36);
     --border-highlight: #5e7248;
 
     --padding-small: 1rem;

@@ -27,6 +27,8 @@ export default function Layout({ children }) {
   const footer = (
     <footer>
       <p>
+        *Caffeine content is based on averages for 8oz cups and varies based on brew times.
+        <br></br>
         <span className="text-gradient">Chacha</span> was made by{" "}
         <a href="https://logan-sailer.netlify.app/" target="_blank">
           Logan Sailer
