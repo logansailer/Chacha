@@ -7,7 +7,7 @@ export default function Intro() {
           Try <span className="text-gradient">Chacha</span> and start...
         </h3>
         <p>
-          <i className="fa-solid fa-check check"></i> Tracking every tea
+          <i className="fa-solid fa-check check"></i> Tracking various teas
         </p>
         <p>
           <i className="fa-solid fa-check check"></i> Measuring caffeine levels
