@@ -23,11 +23,21 @@ export const statusLevels = {
 };
 
 export const teaOptions = [
-  { name: "Black Tea", caffeine: 55 },
+  { name: "Black Tea", caffeine: 50 },
   { name: "Green Tea", caffeine: 30 },
   { name: "Chai", caffeine: 30 },
-  { name: "Oolong Tea", caffeine: 45 },
+  { name: "Drip Coffee", caffeine: 150 },
+  { name: "Espresso", caffeine: 80 },
   { name: "Matcha", caffeine: 70 },
+  { name: "Cold Brew", caffeine: 100 },
+  { name: "5 Hour Energy", caffeine: 200 },
+  { name: "Red Bull", caffeine: 76 },
+  { name: "Coca-Cola", caffeine: 34 },
+  { name: "Dr. Pepper", caffeine: 41 },
+  { name: "Sprite", caffeine: 0 },
+  { name: "Diet Coke", caffeine: 46 },
+  { name: "Mountain Dew", caffeine: 54 },
+  { name: "Oolong Tea", caffeine: 45 },
   { name: "White Tea", caffeine: 35 },
   { name: "Herbal Tea", caffeine: 0 },
   { name: "Chamomile Tea", caffeine: 0 },
@@ -38,6 +48,10 @@ export const teaOptions = [
   { name: "Decaf Tea", caffeine: 3 },
   { name: "Kombucha", caffeine: 24 },
   { name: "Yerba Mate", caffeine: 85 },
+  { name: "Peppermint Tea", caffeine: 0 },
+  { name: "Monster Energy", caffeine: 145 },
+  { name: "Hot Chocolate", caffeine: 10 },
+  { name: "Iced Tea", caffeine: 47 },
 ];
 
 const halfLifeHours = 5;
@@ -146,7 +160,7 @@ export function calculateTeaStats(teaConsumptionHistory) {
     const date = new Date(parseInt(timestamp)).toISOString().split("T")[0]; // Extract date in YYYY-MM-DD format
     const caffeine = getCaffeineAmount(tea.name);
     const cost = parseFloat(tea.cost);
-    
+
     // Initialize or update the daily stats
     if (!dailyStats[date]) {
       dailyStats[date] = { caffeine: 0, cost: 0, count: 0 };
@@ -170,9 +184,7 @@ export function calculateTeaStats(teaConsumptionHistory) {
   }
   // Calculate average daily caffeine and average daily cost
   const averageDailyCaffeine =
-    totalDaysWithTea > 0
-      ? (totalCaffeine / totalDaysWithTea).toFixed(2)
-      : 0;
+    totalDaysWithTea > 0 ? (totalCaffeine / totalDaysWithTea).toFixed(2) : 0;
   const averageDailyCost =
     totalDaysWithTea > 0 ? (totalCost / totalDaysWithTea).toFixed(2) : 0;
   return {

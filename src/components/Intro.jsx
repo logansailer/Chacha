@@ -1,19 +1,19 @@
 export default function Intro() {
   return (
     <>
-      <h1>Tracking App for Tea Enthusiasts</h1>
+      <h1>Tracking App for Caffeine Enthusiasts</h1>
       <div className="benefits-list">
         <h3 className="font-bolder">
           Try <span className="text-gradient">Chacha</span> and start...
         </h3>
         <p>
-          <i className="fa-solid fa-check check"></i> Tracking various teas
+          <i className="fa-solid fa-check check"></i> Tracking various caffinated drinks
         </p>
         <p>
           <i className="fa-solid fa-check check"></i> Measuring caffeine levels
         </p>
         <p>
-          <i className="fa-solid fa-check check"></i> Quantifying your addiction
+          <i className="fa-solid fa-check check"></i> Viewing your caffeine history
         </p>
       </div>
       <div className="card info-card">
