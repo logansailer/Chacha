@@ -10,7 +10,7 @@ export default function Layout({ children }) {
     <header>
       <div>
         <h1 className="text-gradient">Chacha</h1>
-        <p>a Tea Tracking App</p>
+        <p>a Caffeine Tracking App</p>
       </div>
       {globalUser ? (
         <button onClick={logout}>
@@ -27,7 +27,7 @@ export default function Layout({ children }) {
   const footer = (
     <footer>
       <p>
-        *Caffeine content is based on recommended serving sized and varies based on products and brew times.
+        *Caffeine content is based on recommended serving sized and varies based on products, size, and brew times.
         <br></br>
         <span className="text-gradient">Chacha</span> was made by{" "}
         <a href="https://logan-sailer.netlify.app/" target="_blank">
